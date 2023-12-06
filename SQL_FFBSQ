@@ -1,0 +1,70 @@
+CREATE TABLE club(
+numeroaffiliation int NOT NULL AUTO_INCREMENT,
+designationclub varchar(255),
+adresse_siege varchar(255),
+adr_cp_siege int,
+adr_ville_siege varchar(255),
+annee_affiliation int,
+tel_siege varchar(255),
+mail_siege varchar(255),
+adresse_courrier varchar(255),
+adr_cp_courrier int,
+adr_ville_courrier varchar(255),
+numero_prefecfture varchar(255),
+PRIMARY KEY (numeroaffiliation));
+
+CREATE TABLE Licencie(
+numlicencie int NOT NULL AUTO_INCREMENT,
+nomlicencie varchar(255),
+prenomlicencie varchar(255),
+sexelicencie varchar(255),
+datedenaissance DATE,
+photolicencie varchar(255),
+categorielicencie varchar(255),
+positionlicencie varchar(255),
+adr_licencie varchar(255),
+adr_ville_licencie varchar(255),
+tel_licencie varchar(255),
+mail_licencie varchar(255),
+nationalite_licencie varchar(255),
+classification_licencie varchar(255),
+validite_CM DATE,
+annee_reprise int,
+premiere_licence int,
+PRIMARY KEY (numlicencie));
+
+CREATE TABLE Categorie(
+id_categorie int NOT NULL AUTO_INCREMENT,
+libelle_categorie varchar(255),
+age_min int,
+age_max int,
+PRIMARY KEY(id_categorie))
+
+
+CREATE TABLE utilisateur (
+UtilID int NOT NULL AUTO_INCREMENT,
+UtilNom varchar(50),
+UtilPrenom varchar(50),
+UtilLogin varchar(50),
+UtilPassword varchar(255),
+UtilEmail varchar(255),
+UtilDateInscription DATE,
+UtilDateNaissance DATE,
+UtilAdmin boolean,
+UtilSexe varchar(50),
+UtilCategorie varchar(255),
+UtilPosition varchar(50),
+UtilAdresse varchar(255),
+UtilTelephone varchar(50),
+UtilNationalite varchar(255),
+UtilClassification varchar(255),
+UtilFinValidContrat DATE,
+PRIMARY KEY (UtilID));
+
+INSERT INTO utilisateur (UtilNom, UtilPrenom, UtilLogin, UtilPassword) VALUES ('','','','admin');
+
+ALTER TABLE utilisateur ADD COLUMN (UtilDateNaissance DATE);
+
+INSERT INTO utilisateur (UtilNom, UtilPrenom, UtilLogin, UtilPassword, UtilEmail, UtilDateInscription, UtilDateNaissance, UtilAdmin, UtilSexe, UtilCategorie, UtilPosition, UtilAdresse, UtilTelephone, UtilNationalite, UtilClassification, UtilFinValidContrat)
+VALUES
+('Doe', 'John', 'john.doe', 'admin', 'john.doe@example.com', '2023-01-01', '1990-01-01', 0, 'Homme', 'Senior', 'Normal', '123 Rue Fictive', '0643121312', 'Francaise', 'Promotion', '2023-12-31');
